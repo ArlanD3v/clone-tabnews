@@ -4,7 +4,7 @@
   "description": "Clone para fins didáticos do https://www.tabnews.com.br para o https://curso.dev",
   "main": "index.js",
   "scripts": {
-    "dev": "next dev" 
+    "dev": "next dev"
   },
   "author": "",
   "license": "MIT",
