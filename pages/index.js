@@ -1,4 +1,4 @@
 function Home(){
-        return <h1>Olá meu amor!!</h1>
+        return <h1>Olá meu amoreco!!</h1>
 }
 export default Home;
