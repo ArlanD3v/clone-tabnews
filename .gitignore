@@ -1,2 +1,6 @@
 .next
 node_modules
+.gitignore
+biome.json
+.env.development
+.vscode
