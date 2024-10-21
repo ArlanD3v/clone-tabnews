@@ -4,3 +4,4 @@ node_modules
 biome.json
 .env.development
 .vscode
+drop_table.md
