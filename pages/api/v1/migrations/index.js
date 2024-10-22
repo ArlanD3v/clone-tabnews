@@ -9,7 +9,7 @@ export default async function migrations(request, response) {
     console.log('Entrou no POST')
   }
 
-  const migration = await migrationRunner({
+  const migrations = await migrationRunner({
     databaseUrl: process.env.DATABASE_URL,
     dryRun: true,
     dir: join('infra', 'migrations'),
@@ -17,5 +17,5 @@ export default async function migrations(request, response) {
     verbose: true,
     migrationsTable: 'pgmigrations',
   })
-  response.status(200).json(migration)
+  response.status(200).json(migrations)
 }
