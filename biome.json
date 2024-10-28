@@ -26,7 +26,8 @@
     "files": {
         "ignore": [
             "node_modules",
-            ".next"
+            ".next",
+            "jest.config.js"
         ]
     }
 }
