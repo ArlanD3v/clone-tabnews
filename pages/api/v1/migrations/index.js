@@ -12,20 +12,20 @@ export default async function migrations(request, response) {
   }
 
   if (request.method === 'GET') {
-    const migrations = await migrationRunner(defaultMigrationsOptions)
-    return response.status(200).json(migrations)
+    const pendingMigrations = await migrationRunner(defaultMigrationsOptions)
+    return response.status(200).json(pendingMigrations)
   }
 
   if (request.method === 'POST') {
-    const migrations = await migrationRunner({
+    const migratedMigrations = await migrationRunner({
       ...defaultMigrationsOptions,
       dryRun: false,
     })
 
-    if (migrations.length > 0) {
-      return response.status(201).json(migrations)
+    if (migratedMigrations.length > 0) {
+      return response.status(201).json(migratedMigrations)
     }
-    return response.status(200).json(migrations)
+    return response.status(200).json(migratedMigrations)
   }
   return response.status(405).end()
 }
