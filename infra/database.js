@@ -32,12 +32,16 @@ export default {
 }
 
 function getSSLValues() {
-  if (process.env.POSTGRES_CA) {
-    return {
-      ca: process.env.POSTGRES_CA,
-      rejectUnauthorized: false,
+  console.log('BBBBB ', process.env.NODE_ENV)
+  if (process.env.NODE_ENV === 'production') {
+    if (process.env.POSTGRES_CA) {
+      return {
+        ca: process.env.POSTGRES_CA,
+        rejectUnauthorized: true,
+      }
     }
   }
-  return process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false
+
+  return false
 }
 //16:25
