@@ -32,8 +32,8 @@ export default {
 }
 
 function getSSLValues() {
-  console.log('BBBBB ', process.env.NODE_ENV)
   if (process.env.NODE_ENV === 'production') {
+    console.log('Ambiente ', process.env.NODE_ENV)
     if (process.env.POSTGRES_CA) {
       return {
         ca: process.env.POSTGRES_CA,
@@ -42,6 +42,7 @@ function getSSLValues() {
     }
   }
 
+  console.log('Ambiente ', process.env.NODE_ENV)
   return false
 }
 //16:25
