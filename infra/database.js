@@ -32,12 +32,17 @@ export default {
 }
 
 function getSSLValues() {
-  if (process.env.POSTGRES_CA) {
-    return {
-      ca: process.env.POSTGRES_CA,
-      rejectUnauthorized: false,
+  // Verifica se o ambiente é de produção
+  if (process.env.NODE_ENV === 'production') {
+    if (process.env.POSTGRES_CA) {
+      return {
+        ca: process.env.POSTGRES_CA,
+        rejectUnauthorized: true,
+      }
     }
+    return { rejectUnauthorized: true } // SSL ativado sem CA se necessário
   }
-  return process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false
+  // Em ambientes não-produção, desabilita SSL
+  return false
 }
 //16:25
