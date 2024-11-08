@@ -76,5 +76,3 @@ export default {
   query,
   getNewClient,
 }
-
-//16:25
